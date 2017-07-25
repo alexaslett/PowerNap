@@ -24,6 +24,11 @@ class ViewController: UIViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetTimer()
+    }
+    
     func setView() {
         updateTimerLabel()
         // If timer is running, start button title should say "Cancel". If timer is not running, title should say "Start nap"
@@ -36,6 +41,17 @@ class ViewController: UIViewController {
     
     func updateTimerLabel() {
         timerLabel.text = myTimer.timeAsString()
+    }
+    
+    func resetTimer() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+            let timerLocalNotifications = requests.filter { $0.identifier == self.userNotificationIdentifier }
+            guard let timeNotificationRequest = timerLocalNotifications.last,
+                let trigger = timeNotificationRequest.trigger as? UNCalendarNotificationTrigger, let fireDate = trigger.nextTriggerDate() else { return }
+            self.myTimer.stopTimer()
+            self.myTimer.startTimer(fireDate.timeIntervalSinceNow)
+        
+        }
     }
     
     @IBAction func startButtonTapped(_ sender: Any) {
