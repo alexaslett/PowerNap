@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LCv-Hr-e4G">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="TCe-D9-7OJ">
+            <objects>
+                <viewController id="LCv-Hr-e4G" customClass="ViewController" customModule="PowerNapTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RHP-aO-GRc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ehK-rC-fk3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hj1-QL-vvj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-bc-0Cm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrM-lm-0qy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="517.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56q-JV-BYm">
+                                        <rect key="frame" x="0.0" y="517.5" width="375" height="129.5"/>
+                                        <state key="normal" title="Start nap"/>
+                                        <connections>
+                                            <action selector="startButtonTapped:" destination="LCv-Hr-e4G" eventType="touchUpInside" id="HWb-5d-3Ae"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="56q-JV-BYm" firstAttribute="height" secondItem="yrM-lm-0qy" secondAttribute="height" multiplier="1/4" id="JTi-mC-0q4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ehK-rC-fk3" firstAttribute="top" secondItem="YkJ-bc-0Cm" secondAttribute="bottom" id="6xq-KO-pEE"/>
+                            <constraint firstItem="YkJ-bc-0Cm" firstAttribute="leading" secondItem="Hj1-QL-vvj" secondAttribute="leading" id="748-Nh-dST"/>
+                            <constraint firstAttribute="trailing" secondItem="YkJ-bc-0Cm" secondAttribute="trailing" id="bsj-Ya-e2t"/>
+                            <constraint firstItem="YkJ-bc-0Cm" firstAttribute="top" secondItem="RHP-aO-GRc" secondAttribute="bottom" id="tVk-kv-g03"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="56q-JV-BYm" id="nEk-1M-pyh"/>
+                        <outlet property="timerLabel" destination="yrM-lm-0qy" id="gUU-5K-1A0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhy-In-dKg" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
